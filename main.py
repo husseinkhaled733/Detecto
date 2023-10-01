@@ -11,14 +11,19 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        # path of images
         self.fname = []
+        # path of results
         self.results = []
         # self.image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
         self.pixmap = None
+        # to indicate the number of the image which is shown now
         self.counter = 0
         self.showResults = False
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.ROOT_DIR = os.path.abspath("")
 
         self.ui.Select_btn.clicked.connect(self.choose_photos)
         self.ui.Front_btn.clicked.connect(self.forward)
@@ -60,7 +65,7 @@ class MainWindow(QMainWindow):
             self.show_photos()
 
     def detect(self):
-        model = YOLO("/home/exception/PycharmProjects/Task/train/weights/best.pt")
+        model = YOLO(self.ROOT_DIR+"/train/weights/best.pt")
         results = model.predict(self.fname, save=True, device='cpu')
         files = os.listdir(results[0].save_dir)
         # images = [file for file in files if any(file.endswith(ext) for ext in self.image_extensions)]
@@ -78,12 +83,16 @@ class MainWindow(QMainWindow):
     def show_photos(self):
         if self.showResults and len(self.results) > 0:
             self.pixmap = QPixmap(self.results[self.counter])
-            self.pixmap = self.pixmap.scaled(940, 640, Qt.KeepAspectRatio, Qt.FastTransformation)
+            # to scale the image to fit the label
+            self.pixmap = self.pixmap.scaled(self.ui.photo.size().width(), self.ui.photo.size().height(),
+                                             Qt.KeepAspectRatio, Qt.FastTransformation)
             self.ui.photo.setPixmap(self.pixmap)
             self.ui.Original_btn.setIcon(QIcon('undo.png'))
         elif len(self.fname) > 0:
             self.pixmap = QPixmap(self.fname[self.counter])
-            self.pixmap = self.pixmap.scaled(940, 640, Qt.KeepAspectRatio, Qt.FastTransformation)
+            # to scale the image to fit the label
+            self.pixmap = self.pixmap.scaled(self.ui.photo.size().width(), self.ui.photo.size().height(),
+                                             Qt.KeepAspectRatio, Qt.FastTransformation)
             self.ui.photo.setPixmap(self.pixmap)
             self.ui.Original_btn.setIcon(QIcon('redo.png'))
 
@@ -92,7 +101,7 @@ class MainWindow(QMainWindow):
             dlg = QMessageBox(self)
             dlg.setWindowTitle("No Results Found")
             dlg.setText("Press the Run button to see the Results")
-            button = dlg.exec()
+            dlg.exec()
         else:
             self.showResults = not self.showResults
             self.show_photos()

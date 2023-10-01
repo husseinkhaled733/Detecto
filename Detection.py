@@ -14,12 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
+        MainWindow.setWindowModality(QtCore.Qt.NonModal)
         MainWindow.resize(1000, 856)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         MainWindow.setStyleSheet("background-color: rgb(0, 0, 0);\n"
 "color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -29,15 +31,13 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 10, 961, 845))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 10)
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.verticalLayout.setSpacing(7)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.photo = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.photo = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -51,9 +51,15 @@ class Ui_MainWindow(object):
         self.photo.setObjectName("photo")
         self.verticalLayout.addWidget(self.photo)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setContentsMargins(-1, -1, -1, 10)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.Back_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.Back_btn.setMinimumSize(QtCore.QSize(0, 185))
+        self.Back_btn = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Back_btn.sizePolicy().hasHeightForWidth())
+        self.Back_btn.setSizePolicy(sizePolicy)
+        self.Back_btn.setMinimumSize(QtCore.QSize(185, 185))
         self.Back_btn.setStyleSheet("QPushButton{\n"
 " background-color: white;\n"
 " color: black;\n"
@@ -67,8 +73,13 @@ class Ui_MainWindow(object):
         self.Back_btn.setIconSize(QtCore.QSize(100, 100))
         self.Back_btn.setObjectName("Back_btn")
         self.horizontalLayout_2.addWidget(self.Back_btn)
-        self.Select_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.Select_btn.setMinimumSize(QtCore.QSize(0, 185))
+        self.Select_btn = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Select_btn.sizePolicy().hasHeightForWidth())
+        self.Select_btn.setSizePolicy(sizePolicy)
+        self.Select_btn.setMinimumSize(QtCore.QSize(185, 185))
         self.Select_btn.setStyleSheet("QPushButton{\n"
 " background-color: white;\n"
 " color: black;\n"
@@ -82,7 +93,12 @@ class Ui_MainWindow(object):
         self.Select_btn.setIconSize(QtCore.QSize(100, 100))
         self.Select_btn.setObjectName("Select_btn")
         self.horizontalLayout_2.addWidget(self.Select_btn)
-        self.Run_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.Run_btn = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Run_btn.sizePolicy().hasHeightForWidth())
+        self.Run_btn.setSizePolicy(sizePolicy)
         self.Run_btn.setMinimumSize(QtCore.QSize(185, 185))
         self.Run_btn.setStyleSheet("QPushButton{\n"
 " background-color: white;\n"
@@ -97,8 +113,13 @@ class Ui_MainWindow(object):
         self.Run_btn.setIconSize(QtCore.QSize(100, 100))
         self.Run_btn.setObjectName("Run_btn")
         self.horizontalLayout_2.addWidget(self.Run_btn)
-        self.Original_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.Original_btn.setMinimumSize(QtCore.QSize(0, 185))
+        self.Original_btn = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Original_btn.sizePolicy().hasHeightForWidth())
+        self.Original_btn.setSizePolicy(sizePolicy)
+        self.Original_btn.setMinimumSize(QtCore.QSize(185, 185))
         self.Original_btn.setStyleSheet("QPushButton{\n"
 " background-color: white;\n"
 " color: black;\n"
@@ -112,8 +133,13 @@ class Ui_MainWindow(object):
         self.Original_btn.setIconSize(QtCore.QSize(100, 100))
         self.Original_btn.setObjectName("Original_btn")
         self.horizontalLayout_2.addWidget(self.Original_btn)
-        self.Front_btn = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.Front_btn.setMinimumSize(QtCore.QSize(0, 185))
+        self.Front_btn = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Front_btn.sizePolicy().hasHeightForWidth())
+        self.Front_btn.setSizePolicy(sizePolicy)
+        self.Front_btn.setMinimumSize(QtCore.QSize(185, 185))
         self.Front_btn.setStyleSheet("QPushButton{\n"
 " background-color: white;\n"
 " color: black;\n"
@@ -128,8 +154,9 @@ class Ui_MainWindow(object):
         self.Front_btn.setObjectName("Front_btn")
         self.horizontalLayout_2.addWidget(self.Front_btn)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
-        self.verticalLayout.setStretch(0, 4)
+        self.verticalLayout.setStretch(0, 2)
         self.verticalLayout.setStretch(1, 1)
+        self.verticalLayout_12.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
