@@ -33,8 +33,8 @@ class MainWindow(QMainWindow):
 
         self.ui.Back_btn.setIcon(QIcon('back-button.png'))
         self.ui.Front_btn.setIcon((QIcon('right.png')))
-        self.ui.Run_btn.setIcon(QIcon('375.png'))
-        self.ui.Select_btn.setIcon(QIcon('70310.png'))
+        self.ui.Run_btn.setIcon(QIcon('run.png'))
+        self.ui.Select_btn.setIcon(QIcon('select.png'))
         self.ui.Original_btn.setIcon(QIcon('undo.png'))
 
     def choose_photos(self):
